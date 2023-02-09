@@ -1,0 +1,14 @@
+@import '../../styles/functions.scss';
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: size(200px);
+  padding-bottom: size(27px);
+  background-color: var(--color-black);
+  color: var(--color-white);
+
+  font-size: size(14px);
+  line-height: size(16px);
+}

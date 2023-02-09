@@ -1,0 +1,26 @@
+@import '../../styles/functions.scss';
+
+.title {
+  color: var(--color-black);
+}
+
+.h1 {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+
+  clip: rect(0 0 0 0);
+}
+
+.h2 {
+  font-size: size(48px);
+  line-height: size(62px);
+  text-transform: uppercase;
+}
+
+.h3 {
+  font-size: size(48px);
+  line-height: size(54px);
+}

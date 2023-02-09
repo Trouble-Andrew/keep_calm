@@ -1,0 +1,27 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/functions.scss';
+
+.header {
+  background: linear-gradient(0deg, #464341 0%, #010101 100%);
+
+  font-size: size(19px);
+  padding: size(32px);
+  color: var(--color-white);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: size(214px);
+  height: size(36px);
+}
+
+.phoneLink {
+  font-size: size(24px);
+  line-height: size(33px);
+  color: var(--color-white);
+}

@@ -1,0 +1,22 @@
+@import '../../styles/functions.scss';
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: size(195px);
+  padding-bottom: size(160px);
+  min-height: 100vh;
+  background-color: var(--color-white);
+}
+
+.title {
+  margin-bottom: size(126px);
+}
+
+.card {
+  &:not(:last-child) {
+    margin-bottom: size(100px);
+  }
+}

@@ -1,0 +1,56 @@
+@import '../../styles/functions.scss';
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: size(50px);
+
+  &:not(.cardBigImg) {
+    .content {
+      margin-top: size(-30px);
+    }
+  }
+}
+
+.cardBigImg {
+  .imgWrapper {
+    order: -1;
+    height: size(480px);
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    right: size(78px);
+    width: auto;
+    height: 100%;
+
+    max-width: initial;
+  }
+}
+
+.content {
+  width: 89%;
+  // padding: size(60px) 0;
+  // padding-top: size(68px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.imgWrapper {
+  position: relative;
+
+  height: size(411px);
+}
+
+.title {
+  margin-bottom: size(32px);
+}
+
+.text {
+  &:not(:last-child) {
+    margin-bottom: size(8px);
+  }
+}
