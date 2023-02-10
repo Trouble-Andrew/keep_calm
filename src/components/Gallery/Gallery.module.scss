@@ -22,7 +22,15 @@
 }
 
 .ghost {
-  width: 100vw;
+  @include vp-767 {
+    display: none;
+  }
+}
+
+.galleryWrapper {
+  @include vp-767 {
+    display: none;
+  }
 }
 
 .list {

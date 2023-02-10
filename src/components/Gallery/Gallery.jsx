@@ -10,6 +10,9 @@ import Title from '../Title/Title';
 import Image from 'next/image';
 import styles from './Gallery.module.scss';
 import { galleryImages } from '@/data/galleryImages';
+import useWindowSize from '@/hooks/useWindowResize';
+import { TABLET_WIDTH } from '@/lib/constants';
+import Slider from '../Slider/Slider';
 
 const Gallery = () => {
   const scrollRef = useRef(null);
@@ -17,24 +20,24 @@ const Gallery = () => {
   const containerRef = useRef(null);
   const [scrollRange, setScrollRange] = useState(0);
   const [viewportW, setViewportW] = useState(0);
-  let clientWidth;
+  const [clientWidth, setClientWidth] = useState(0);
 
+  const size = useWindowSize();
   const scrollPerc = useMotionValue(0);
 
   useEffect(() => {
-    scrollRef && setScrollRange(scrollRef.current.scrollWidth);
-  }, [scrollRef]);
+    if (size.width >= TABLET_WIDTH) {
+      scrollRef && setScrollRange(scrollRef.current.scrollWidth);
+    }
+
+    const scrollBarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+    setClientWidth(size.width - scrollBarWidth);
+  }, [scrollRef, size]);
 
   const onResize = useCallback((entries) => {
     for (let entry of entries) {
       setViewportW(entry.contentRect.width);
-      // clientWidth =
-      //   entry.contentRect.width -
-      //   window.innerWidth -
-      //   document.documentElement.clientWidth;
-
-      // console.log(window.innerWidth - document.documentElement.clientWidth);
-      // console.log(entry.contentRect.width);
     }
   }, []);
 
@@ -58,6 +61,7 @@ const Gallery = () => {
     [0, 1],
     [0, -scrollRange + viewportW],
   );
+
   const physics = { damping: 15, mass: 0.27, stiffness: 55 };
   const spring = useSpring(transform, physics);
 
@@ -66,7 +70,7 @@ const Gallery = () => {
       <div
         className={styles.container}
         style={{
-          width: `100vw`,
+          width: `${clientWidth}px`,
           overflow: 'hidden',
         }}
       >
@@ -76,24 +80,31 @@ const Gallery = () => {
           </Title>
         </div>
 
-        <motion.div ref={scrollRef} style={{ x: spring }}>
-          <ul className={styles.list}>
-            {galleryImages.map((image, index) => {
-              return (
-                <li key={index} className={styles.item}>
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill={true}
-                    sizes="(max-width: 768px) 100vw,
+        {size?.width >= TABLET_WIDTH && (
+          <motion.div
+            ref={scrollRef}
+            style={{ x: spring }}
+            className={styles.galleryWrapper}
+          >
+            <ul className={styles.list}>
+              {galleryImages.map((image, index) => {
+                return (
+                  <li key={index} className={styles.item}>
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill={true}
+                      sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw"
-                  />
-                </li>
-              );
-            })}
-          </ul>
-        </motion.div>
+                    />
+                  </li>
+                );
+              })}
+            </ul>
+          </motion.div>
+        )}
+        {size.width < TABLET_WIDTH && <Slider images={galleryImages} />}
       </div>
       <div
         ref={ghostRef}
