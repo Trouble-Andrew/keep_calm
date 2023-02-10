@@ -8,6 +8,10 @@
   right: 0;
   will-change: transform;
 
+  @include vp-1279 {
+    top: 130px;
+  }
+
   @include vp-767 {
     top: 100px;
   }
@@ -15,6 +19,10 @@
 
 .title {
   margin-bottom: size(127px);
+
+  @include vp-1279 {
+    margin-bottom: 35px;
+  }
 
   @include vp-767 {
     margin-bottom: 58px;
@@ -40,7 +48,7 @@
   list-style: none;
   padding: 0 size(269px);
 
-  @include vp-1439 {
+  @include vp-1500 {
     padding: 0 100px;
   }
 
