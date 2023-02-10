@@ -1,4 +1,5 @@
 @import '../../styles/functions.scss';
+@import '../../styles/mixins.scss';
 
 .footer {
   display: flex;
@@ -11,4 +12,9 @@
 
   font-size: size(14px);
   line-height: size(16px);
+
+  @include vp-767 {
+    font-size: 14px;
+    line-height: 16px;
+  }
 }

@@ -1,4 +1,5 @@
 @import '../../styles/functions.scss';
+@import '../../styles/mixins.scss';
 
 .container {
   position: sticky;
@@ -6,10 +7,18 @@
   left: 0;
   right: 0;
   will-change: transform;
+
+  @include vp-767 {
+    top: 100px;
+  }
 }
 
 .title {
   margin-bottom: size(127px);
+
+  @include vp-767 {
+    margin-bottom: 58px;
+  }
 }
 
 .ghost {
@@ -21,7 +30,11 @@
   display: flex;
   width: max-content;
   list-style: none;
-  padding: 0 269px;
+  padding: 0 size(269px);
+
+  @include vp-767 {
+    padding: 0 20px;
+  }
 }
 
 .item {
@@ -29,6 +42,11 @@
 
   width: size(320px);
   height: size(489px);
+
+  @include vp-767 {
+    width: 225px;
+    height: 344px;
+  }
 
   &:not(:last-child) {
     margin-right: size(40px);

@@ -1,4 +1,5 @@
 @import '../../styles/functions.scss';
+@import '../../styles/mixins.scss';
 
 .title {
   color: var(--color-black);
@@ -18,9 +19,20 @@
   font-size: size(48px);
   line-height: size(62px);
   text-transform: uppercase;
+
+  @include vp-767 {
+    width: 80%;
+    font-size: 24px;
+    line-height: 31px;
+  }
 }
 
 .h3 {
   font-size: size(48px);
   line-height: size(54px);
+
+  @include vp-767 {
+    font-size: 24px;
+    line-height: 29px;
+  }
 }

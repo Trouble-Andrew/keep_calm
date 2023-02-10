@@ -10,6 +10,10 @@
   padding: size(32px);
   color: var(--color-white);
   z-index: 10;
+
+  @include vp-767 {
+    padding: 18px 0;
+  }
 }
 
 .wrapper {
@@ -21,10 +25,30 @@
 .logo {
   width: size(214px);
   height: size(36px);
+
+  @include vp-767 {
+    width: 119px;
+    height: 21px;
+  }
 }
 
 .phoneLink {
   font-size: size(24px);
   line-height: size(33px);
   color: var(--color-white);
+}
+
+.phoneText {
+  @include vp-767 {
+    display: none;
+  }
+}
+
+.phoneLink {
+  display: none;
+  color: var(--color-white);
+
+  @include vp-767 {
+    display: block;
+  }
 }
