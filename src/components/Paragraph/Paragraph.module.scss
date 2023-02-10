@@ -5,6 +5,11 @@
   font-size: size(18px);
   line-height: size(23px);
 
+  @include vp-1023 {
+    font-size: 16px;
+    line-height: 18px;
+  }
+
   @include vp-767 {
     font-size: 14px;
     line-height: 18px;

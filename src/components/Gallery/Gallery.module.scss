@@ -32,6 +32,14 @@
   list-style: none;
   padding: 0 size(269px);
 
+  @include vp-1439 {
+    padding: 0 100px;
+  }
+
+  @include vp-1023 {
+    padding: 0 20px;
+  }
+
   @include vp-767 {
     padding: 0 20px;
   }
