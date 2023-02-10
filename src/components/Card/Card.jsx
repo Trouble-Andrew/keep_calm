@@ -44,6 +44,7 @@ const Card = ({ bigImg = false, className, title, img, paragraphs }) => {
           height={bigImg ? bigImgSize.height : imgSize.height}
           alt={img.alt}
           quality={85}
+          priority={img.priority ? true : false}
         />
       </div>
     </div>

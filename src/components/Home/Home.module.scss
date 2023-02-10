@@ -5,8 +5,8 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding-top: size(195px);
-  padding-bottom: size(160px);
+  padding-top: size(110px);
+  padding-bottom: size(75px);
   min-height: 100vh;
   background-color: var(--color-white);
 }
@@ -19,4 +19,15 @@
   &:not(:last-child) {
     margin-bottom: size(100px);
   }
+}
+
+.section {
+  // margin-bottom: size(154px);
+
+  padding: size(85px) 0;
+}
+
+.gallerySection {
+  padding-top: size(69px);
+  padding-bottom: size(67px);
 }

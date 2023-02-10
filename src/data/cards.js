@@ -13,6 +13,7 @@ export const cardsList = [
     img: {
       src: image1,
       alt: 'photo 1',
+      priority: true,
     },
   },
   {
